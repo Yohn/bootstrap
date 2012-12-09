@@ -156,4 +156,12 @@ $(function () {
         div.find('a').trigger('click')
         ok($(".tooltip").is('.fade.in'), 'tooltip is faded in')
       })
+      
+      test("should show tooltip when toggle is called", function () {
+        var tooltip = $('<a href="#" rel="tooltip" title="tooltip on toggle"></a>')
+          .appendTo('#qunit-fixture')
+          .tooltip({trigger: 'manual'})
+        tooltip.trigger('toggle')
+        ok(!$(".tooltip").is('.fade.in'), 'tooltip toggled in')
+      })
 })
